@@ -73,3 +73,12 @@ samples, guidance on mobile development, and a full API reference.
   json_serializable: ^2.0.0
 ```
 > **可以执行,但是,执行后报错: Unhandled exception: RangeError: Value not in range: -1**
+
+
+- 解决报错
+1. [博客地址](https://my.oschina.net/u/4275236/blog/3354200)
+`json_model: ^0.0.2 #最新版本`
+> 使用这样的方式，引入json_model
+> 另外文中还是用了自己的方法封装一个脚本，也能实现json_model功能
+2. 查了一下**RangeError: Value not in range: -1**
+> 感觉有点像是代码的问题
