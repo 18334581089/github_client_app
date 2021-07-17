@@ -29,12 +29,23 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  # Dart Model---自动化的源代码生成器，可以在开发阶段为我们生成JSON序列化模板
+  # json_annotation: ^2.0.0
+  # 尝试高版本可以避免报错
+  json_annotation: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_model: #latest version
-  build_runner: ^1.0.0
-  json_serializable: ^2.0.0
+
+  # json_model: #latest version
+  # 执行json_model会报错
+  # json_model: ^0.0.2 #最新版本
+  # 切换0.0.2也不行
+  # 从官网拷下源码在本地创建json_model来代替插件
+  
+  build_runner: ^2.0.0
+  json_serializable: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

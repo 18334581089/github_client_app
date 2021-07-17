@@ -82,3 +82,15 @@ samples, guidance on mobile development, and a full API reference.
 > 另外文中还是用了自己的方法封装一个脚本，也能实现json_model功能
 2. 查了一下**RangeError: Value not in range: -1**
 > 感觉有点像是代码的问题
+
+#### 7/17
+- 解决报错
+1. 查看models目录下文件,对应的dart文件已经生成了
+
+2. 在flutter_vscode中使用mo.sh 方法生成models成功,
+3. 在当前项目中使用build_runner 2.0 版本执行 build_runner build 成功,
+
+- 解决问题,接下来就是组合到一起
+1. 不再引入json_model
+2. 创建,json_model文件, 复制json_model源码
+3. 路径报错,稍后继续
