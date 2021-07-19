@@ -94,3 +94,9 @@ samples, guidance on mobile development, and a full API reference.
 1. 不再引入json_model
 2. 创建,json_model文件, 复制json_model源码
 3. 路径报错,稍后继续
+
+#### 7/19
+- 调整mo.sh文件后,生成**.g.dart**文件成功
+(昨天肚子疼)
+- 数据持久化
+1. shared_preferences
