@@ -100,3 +100,79 @@ samples, guidance on mobile development, and a full API reference.
 (昨天肚子疼)
 - 数据持久化
 1. shared_preferences
+> shared_preferences对登录用户的Profile信息进行持久化
+> 它通过Android和iOS平台提供的机制来实现数据持久化
+> 示例
+```
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      body: Center(
+      child: RaisedButton(
+        onPressed: _incrementCounter,
+        child: Text('Increment Counter'),
+        ),
+      ),
+    ),
+  ));
+}
+
+_incrementCounter() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int counter = (prefs.getInt('counter') ?? 0) + 1;
+  print('Pressed $counter times.');
+  await prefs.setInt('counter', counter);
+}
+```
+将上面的代码使用再首页
+
+- 解决项目无法启动的问题
+1. 谷歌搜索
+> 再官方的json_serializable 5.0.0 插件中,展示了正确的model和.g.dart的写法
+> 如下
+```
+import 'package:json_annotation/json_annotation.dart';
+
+part 'example.g.dart';
+
+@JsonSerializable()
+class Person {
+  final String firstName;
+  final String lastName;
+  final DateTime? dateOfBirth;
+  Person({required this.firstName, required this.lastName, this.dateOfBirth});
+  factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
+  Map<String, dynamic> toJson() => _$PersonToJson(this);
+}
+```
+```
+part of 'example.dart';
+
+Person _$PersonFromJson(Map<String, dynamic> json) => Person(
+      firstName: json['firstName'] as String,
+      lastName: json['lastName'] as String,
+      dateOfBirth: json['dateOfBirth'] == null
+          ? null
+          : DateTime.parse(json['dateOfBirth'] as String),
+    );
+
+Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'dateOfBirth': instance.dateOfBirth?.toIso8601String(),
+    };
+```
+
+2. 通过比较可以知道
+> 1: class方法中没有函数自调用
+
+3. 目前没有办法回去了
+> .g.dart文件没有生成model 的dart文件格式也有问题,template的报错也解决不了
+> 测试下午的所有修改,
+
+4. 勉强把一个madel 和 .g.dart文件改的不报错了,
+> 但是具体的原因还是不清楚
+> 明天找示例直接写
