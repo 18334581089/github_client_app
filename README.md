@@ -176,3 +176,17 @@ Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
 4. 勉强把一个madel 和 .g.dart文件改的不报错了,
 > 但是具体的原因还是不清楚
 > 明天找示例直接写
+
+#### 7/20
+- 解决无法启动项目
+1. 修改template.dart 改为 template.txt,可以正常生成dart文件
+2. 生成的dart文件报错
+> [博客](https://segmentfault.com/a/1190000037784724)
+> 1: mo.dart文件的作用就是生成对应的dart, runner: 生成.g.dart文件
+> 2: 不再使用 文档中的 template的方式自动生成model.dart文件
+> **因为没有掌握原理,不是特别理解,所以先放一放,有时间再回头看**
+> 3: 使用博客中的[转换model](https://czero1995.github.io/json-to-model/)地址生成model.dart文件
+> 4: 生成的文件需要加required
+> 5: 在执行`flutter pub run build_runner build`, 生成.g.dart文件
+> 没有报错
+3. 可以启动了
