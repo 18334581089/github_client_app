@@ -1,12 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'cacheConfig.g.dart';
 
+CacheconfigData default1 = new CacheconfigData();
+
 @JsonSerializable(explicitToJson: true)
 class Cacheconfig {
-  CacheconfigData data;
-  int code;
-  int message;
-  Cacheconfig({required this.data, required this.code, required this.message});
+  CacheconfigData data = default1;
+  int code = 0;
+  int message = 0;
+  Cacheconfig();
 
   factory Cacheconfig.fromJson(Map<String, dynamic> json) =>
       _$CacheconfigFromJson(json);
@@ -15,15 +17,11 @@ class Cacheconfig {
 
 @JsonSerializable(explicitToJson: true)
 class CacheconfigData {
-  bool enable;
-  int maxAge;
-  int maxCount;
+  bool enable = false;
+  int maxAge = 0;
+  int maxCount = 0;
 
-  CacheconfigData({
-    required this.enable,
-    required this.maxAge,
-    required this.maxCount,
-  });
+  CacheconfigData();
 
   factory CacheconfigData.fromJson(Map<String, dynamic> json) =>
       _$CacheconfigDataFromJson(json);
