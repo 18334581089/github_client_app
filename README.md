@@ -190,3 +190,11 @@ Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
 > 5: 在执行`flutter pub run build_runner build`, 生成.g.dart文件
 > 没有报错
 3. 可以启动了
+
+####　7/21
+1. shared_preferences
+> 类似于web的storage
+- 全局变量及共享状态
+1. 需要全局共享的信息分为两类: 全局变量和共享状态
+2. 全局变量包括: 全局的变量,全局的工具,全局的方法对象(改变时需要通知所有使用该状态的组件)
+3. 共享状态包括: 跨组件或跨路由共享的信息(改变时不需要通知组件)

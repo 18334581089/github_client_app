@@ -34,6 +34,9 @@ dependencies:
   # 尝试高版本可以避免报错
   json_annotation: ^4.0.0
 
+  # shared_preferences 数据持久化
+  shared_preferences: #latest version
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

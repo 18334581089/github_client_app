@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -59,6 +60,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  _incrementCounter2() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int counter = (prefs.getInt('counter') ?? 0) + 1; // 获取getInt
+    print('Pressed $counter times.');
+    await prefs.setInt('counter', counter); // 异步等待 , 设置setInt
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -99,6 +107,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            ElevatedButton(
+              onPressed: _incrementCounter2,
+              child: Text('Increment Counter'),
             ),
           ],
         ),
