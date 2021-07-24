@@ -37,6 +37,9 @@ dependencies:
   # shared_preferences 数据持久化
   shared_preferences: #latest version
 
+  # require 封装
+  dio: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
